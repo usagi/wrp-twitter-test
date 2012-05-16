@@ -1,48 +1,30 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>wrp-twitter-test by usagi</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>wrp-twitter-test</title>
+<script src="https://github.com/downloads/bytespider/jsOAuth/jsOAuth-1.3.4.min.js"></script>
+<script>
+var o = {
+  consumerKey     : 'T8jBTfGoEFMbZ3zA7N1NeA',
+  consumerSecret  : '1ymMNC4ZpbodFquIS7vOilDlrm9U9e81tAsWIgVpo',
+};
+console.log('show o // OAuth option object');
+console.log(o);
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/usagi/wrp-twitter-test">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/usagi/wrp-twitter-test/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/usagi/wrp-twitter-test/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+var a = OAuth(o);
+console.log('show a // OAuth object');
+console.log(a);
 
-    <div class="wrapper">
+a.get(
+  'https://api.twitter.com/oauth/request_token',
+  function(d){
+    console.log('OAuth::get is success');
+    console.log('show d // OAuth::get callback function params[0]');
+    console.log(d);
+  },
+  function(d){
+    console.log('OAuth::get is fail')
+    console.log('show d // OAuth::get callback function params[0]');
+    console.log(d);
+  }
+);
+console.log('a.get was called');
 
-      <section>
-        <div id="title">
-          <h1>wrp-twitter-test</h1>
-          <p>testing</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/usagi">usagi</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
-        </div>
-
-        <p>test</p>
-      </section>
-
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-    
-  </body>
-</html>
+</script>
