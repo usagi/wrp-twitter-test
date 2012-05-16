@@ -5,7 +5,6 @@
   var anywhereApiKey = "abcdefghi-123";
   twttr.anywhere(anywhereApiKey, "1.0.0", onAnywhereLoad);
   function onAnywhereLoad(twitter) {
-    # Conditionally display the Connect Button based on current logged in state:
     if (twitter.isConnected) {
       currentUser = twitter.User.current;
       screenName = currentUser.data('screen_name');
