@@ -2,18 +2,15 @@
 <title>wrp-twitter-test</title>
 <script src="http://platform.twitter.com/anywhere.js?id=t6nrLVd8zCH7rZMawfoDw&amp;v=1"></script>
 <script type="text/javascript">
-  var anywhereApiKey = "abcdefghi-123";
-  twttr.anywhere(anywhereApiKey, "1.0.0", onAnywhereLoad);
-  function onAnywhereLoad(twitter) {
-    if (twitter.isConnected) {
-      currentUser = twitter.User.current;
-      screenName = currentUser.data('screen_name');
-      profileImage = currentUser.data('profile_image_url');
-      profileImageTag = "<img src='" + profileImage + "'/>";
-      $('#twitter-connect-placeholder').innerHTML = "Logged in as " + profileImageTag + " " + screenName;
-    } else {
-      twitter("#twitter-connect-placeholder").connectButton();
-    };
-  };
+  twttr.anywhere(function(t){
+    if(t.isConnected){
+      var currentUser     = t.User.current;
+      var screenName      = currentUser.data('screen_name');
+      var profileImage    = currentUser.data('profile_image_url');
+      var profileImageTag = "<img src='" + profileImage + "'>";
+      getElementById('t').innerHTML = "Logged in as " + profileImageTag + " " + screenName;
+    }else
+      t('#t').connectButton();
+  });
 </script>
-
+<div id="t"/>
