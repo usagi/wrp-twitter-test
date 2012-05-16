@@ -12,19 +12,23 @@ var a = OAuth(o);
 console.log('show a // OAuth object');
 console.log(a);
 
-a.get(
-  'https://api.twitter.com/oauth/request_token',
-  function(d){
+//a.get(
+a.request({
+  method : 'GET',
+  url    : 'https://api.twitter.com/oauth/request_token',
+  success: function(d){
     console.log('OAuth::get is success');
     console.log('show d // OAuth::get callback function params[0]');
     console.log(d);
   },
-  function(d){
+  failure: function(d){
     console.log('OAuth::get is fail')
     console.log('show d // OAuth::get callback function params[0]');
     console.log(d);
-  }
+  },
+  headers: { 'Access-Control-Allow-Origin': '*' },
 );
-console.log('a.get was called');
+//console.log('a.get was called');
+console.log('a.request was called');
 
 </script>
