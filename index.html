@@ -3,14 +3,17 @@
 <script src="http://platform.twitter.com/anywhere.js?id=t6nrLVd8zCH7rZMawfoDw&amp;v=1"></script>
 <script type="text/javascript">
   twttr.anywhere(function(t){
-    if(t.isConnected){
+    if(t.isConnected()){
+      console.dir("a");
       var currentUser     = t.User.current;
       var screenName      = currentUser.data('screen_name');
       var profileImage    = currentUser.data('profile_image_url');
       var profileImageTag = "<img src='" + profileImage + "'>";
       getElementById('t').innerHTML = "Logged in as " + profileImageTag + " " + screenName;
-    }else
+    }else{
+      console.dir("b");
       t('#t').connectButton();
+    }
   });
 </script>
 <div id="t"/>
