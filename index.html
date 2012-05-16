@@ -7,8 +7,8 @@
       console.info("isConnected === true");
       var u = t.currentUser;
       console.dir(u);
-      var name      = u.data('screenName');
-      var image     = u.data('profileImageUrl');
+      var name      = u.data('screen_name');
+      var image     = u.data('profile_image_url');
       var image_tag = '<img src="' + image + '">';
       var e = document.getElementById('t');
       e.innerHTML = 'Logged in as ' + image_tag + ' ' + name;
