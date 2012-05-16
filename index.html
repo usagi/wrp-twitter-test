@@ -5,11 +5,11 @@
   twttr.anywhere(function(t){
     if(t.isConnected()){
       console.dir("a");
-      var currentUser     = t.User.current;
-      var screenName      = currentUser.data('screen_name');
-      var profileImage    = currentUser.data('profile_image_url');
-      var profileImageTag = "<img src='" + profileImage + "'>";
-      getElementById('t').innerHTML = "Logged in as " + profileImageTag + " " + screenName;
+      var u = t.currentUser;
+      var name      = u.data('screen_name');
+      var image     = u.data('profile_image_url');
+      var image_tag = "<img src='" + image + "'>";
+      getElementById('t').innerHTML = "Logged in as " + image_tag + " " + screenName;
     }else{
       console.dir("b");
       t('#t').connectButton();
