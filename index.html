@@ -7,7 +7,7 @@
       console.info("isConnected === true");
       var u = t.currentUser;
       console.dir(u);
-      var name      = u.data('screenName');
+      var name      = u.screenName;//u.data('screenName');
       var image     = u.data('profileImageUrl');
       var image_tag = '<img src="' + image + '">';
       var e = document.getElementById('t');
