@@ -1,34 +1,20 @@
+<!DOCTYPE html>
 <title>wrp-twitter-test</title>
-<script src="https://github.com/downloads/bytespider/jsOAuth/jsOAuth-1.3.4.min.js"></script>
-<script>
-var o = {
-  consumerKey     : 'T8jBTfGoEFMbZ3zA7N1NeA',
-  consumerSecret  : '1ymMNC4ZpbodFquIS7vOilDlrm9U9e81tAsWIgVpo',
-};
-console.log('show o // OAuth option object');
-console.log(o);
-
-var a = OAuth(o);
-console.log('show a // OAuth object');
-console.log(a);
-
-//a.get(
-a.request({
-  method : 'GET',
-  url    : 'https://api.twitter.com/oauth/request_token',
-  success: function(d){
-    console.log('OAuth::get is success');
-    console.log('show d // OAuth::get callback function params[0]');
-    console.log(d);
-  },
-  failure: function(d){
-    console.log('OAuth::get is fail')
-    console.log('show d // OAuth::get callback function params[0]');
-    console.log(d);
-  },
-  headers: { 'Access-Control-Allow-Origin': '*' },
-});
-//console.log('a.get was called');
-console.log('a.request was called');
-
+<script src="http://platform.twitter.com/anywhere.js?id=t6nrLVd8zCH7rZMawfoDw&amp;v=1"></script>
+<script type="text/javascript">
+  var anywhereApiKey = "abcdefghi-123";
+  twttr.anywhere(anywhereApiKey, "1.0.0", onAnywhereLoad);
+  function onAnywhereLoad(twitter) {
+    # Conditionally display the Connect Button based on current logged in state:
+    if (twitter.isConnected) {
+      currentUser = twitter.User.current;
+      screenName = currentUser.data('screen_name');
+      profileImage = currentUser.data('profile_image_url');
+      profileImageTag = "<img src='" + profileImage + "'/>";
+      $('#twitter-connect-placeholder').innerHTML = "Logged in as " + profileImageTag + " " + screenName;
+    } else {
+      twitter("#twitter-connect-placeholder").connectButton();
+    };
+  };
 </script>
+
